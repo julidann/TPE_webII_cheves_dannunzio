@@ -19,15 +19,15 @@ README:
   
 º Tablas
 - categories (Padre):
-    -id_category (PK)          INT
-    -name_category             VARCHAR
-    -description_category      VARCHAR
+    - id_category (PK)          INT
+    - name_category             VARCHAR
+    - description_category      VARCHAR
   
 - products (Hijo)
-    -id_product  (PK)           INT
-    -name_product               VARCHAR
-    -model_product              VARCHAR
-    -id_category (FK)           INT
+    - id_product  (PK)           INT
+    - name_product               VARCHAR
+    - model_product              VARCHAR
+    - id_category (FK)           INT
 
 º Código SQL
   - Exportado 'database.sql'
