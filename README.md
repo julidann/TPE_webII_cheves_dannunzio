@@ -15,7 +15,7 @@ README:
 - Cada producto pertenece a una sola categoría, estableciendo una relación 1:N entre Categorías y Productos.
 
 º Diagrama de entidad relacion (DER)
-  -Adjuntado DER.png
+  - Adjuntado DER.png
   
 º Tablas
 - categories (Padre):
