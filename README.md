@@ -14,7 +14,7 @@ README:
 - Todos los usuarios pueden visualizar los productos y sus categorías, pero solo el administrador puede crear, modificar o eliminar productos y categorías.
 - Cada producto pertenece a una sola categoría, estableciendo una relación 1:N entre Categorías y Productos.
 - Dentro de la tabla **categories**, encontramos el nombre y una breve descripción. (*Celulares*, *SmartWatch* y *Auriculares*).
-- Dentro de la tabla **products*, encontramos el nombre, modelo y precio en U$D de cada uno. 
+- Dentro de la tabla **products**, encontramos el nombre, modelo y precio en U$D de cada uno. 
 
 ### Diagrama de entidad relacion (DER)
   - [DER](./DER.png)
