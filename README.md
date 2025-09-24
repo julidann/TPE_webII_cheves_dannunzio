@@ -1,23 +1,23 @@
 README: 
 # TPE_webII_cheves_dannunzio
 
-º Datos integrantes
+### Datos integrantes
 
   - Cheves Nicolas, nicocheves99@gmail.com
   - D'Annunzio Julieta, dannunzio.juelieta@gmail.com
 
-º Temática del Trabajo Especial 
+### Temática del Trabajo Especial 
 - Catálogo de productos para una tienda de dispositivos tecnológicos.
 
-º Descripción del tema
+### Descripción del tema
 - Desarrollo de sitio web tipo catálogo para un local que vende dispositivos tecnológicos.
 - Todos los usuarios pueden visualizar los productos y sus categorías, pero solo el administrador puede crear, modificar o eliminar productos y categorías.
 - Cada producto pertenece a una sola categoría, estableciendo una relación 1:N entre Categorías y Productos.
 
-º Diagrama de entidad relacion (DER)
+### Diagrama de entidad relacion (DER)
   - Adjuntado Diagrama_de_entidad_relación.png
   
-º Tablas
+### Tablas
 - categories (Padre):
     - id_category (PK)          INT
     - name_category             VARCHAR
@@ -29,6 +29,7 @@ README:
     - model_product              VARCHAR
     - id_category (FK)           INT
 
-º Código SQL
+### Código SQL
   - Exportado 'database.sql'
+  - [devices.sql](./devices.sql)
 
