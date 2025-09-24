@@ -21,17 +21,16 @@ README:
   
 ### Tablas
 - categories (Padre):
-    - id_category (PK)          INT
-    - name_category             VARCHAR
-    - description_category      VARCHAR
+    - id(PK)                    INT
+    - name                      VARCHAR
+    - description               VARCHAR
   
 - products (Hijo)
-    - id_product  (PK)           INT
-    - name_product               VARCHAR
-    - model_product              VARCHAR
+    - id(PK)                     INT
+    - name                       VARCHAR
+    - model                      VARCHAR
     - id_category (FK)           INT
 
 ### Código SQL
-  - Exportado 'database.sql'
-  - [devices.sql](./devices.sql)
+  - [SQL](./devices.sql)
 
