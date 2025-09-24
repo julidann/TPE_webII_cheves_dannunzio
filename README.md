@@ -4,7 +4,7 @@ README:
 ### Datos integrantes
 
   - Cheves Nicolas, nicocheves99@gmail.com
-  - D'Annunzio Julieta, dannunzio.juelieta@gmail.com
+  - D'Annunzio Julieta, dannunzio.julieta@gmail.com
 
 ### Temática del Trabajo Especial 
 - Catálogo de productos para una tienda de dispositivos tecnológicos Apple.
