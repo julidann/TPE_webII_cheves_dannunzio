@@ -7,15 +7,17 @@ README:
   - D'Annunzio Julieta, dannunzio.juelieta@gmail.com
 
 ### Temática del Trabajo Especial 
-- Catálogo de productos para una tienda de dispositivos tecnológicos.
+- Catálogo de productos para una tienda de dispositivos tecnológicos Apple.
 
 ### Descripción del tema
-- Desarrollo de sitio web tipo catálogo para un local que vende dispositivos tecnológicos.
+- Desarrollo de sitio web tipo catálogo para un local que vende dispositivos tecnológicos de la marca Apple.
 - Todos los usuarios pueden visualizar los productos y sus categorías, pero solo el administrador puede crear, modificar o eliminar productos y categorías.
 - Cada producto pertenece a una sola categoría, estableciendo una relación 1:N entre Categorías y Productos.
+- Dentro de la tabla **categories**, encontramos el nombre y una breve descripción. (*Celulares*, *SmartWatch* y *Auriculares*).
+- Dentro de la tabla **products*, encontramos el nombre, modelo y precio en U$D de cada uno. 
 
 ### Diagrama de entidad relacion (DER)
-  - Adjuntado Diagrama_de_entidad_relación.png
+  - [DER](./DER.png)
   
 ### Tablas
 - categories (Padre):
