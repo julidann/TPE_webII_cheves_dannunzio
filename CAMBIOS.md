@@ -1,4 +1,5 @@
 # Juli
+## Se modificaron archivos a PHTML + los request_once
 ## Se agregó en APP
   - Carpeta middlewares
   - MVC USER creación:
