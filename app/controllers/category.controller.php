@@ -47,7 +47,7 @@ class CategoryController {
 
     public function removeCategory($request) {
         // obtengo la tarea que quiero eliminar
-        $category = $this->model->get($request-> $id);
+        $category = $this->model->get($request-> id);
 
         if (!$category) {
             return $this->view->showError("No existe la categoría con el id=$request->id", $request->user);
@@ -57,11 +57,33 @@ class CategoryController {
         // redirijo al home //VER ESTO 
         header('Location: ' . BASE_URL);
     }
+    /* RECHEQUEAR
+    public function editCategory($request) {
+    // obtengo los datos del formulario
+    $name = $_POST['name'] ?? null;
+    $description = $_POST['description'] ?? null;
 
+    // verifico que no estén vacíos
+    if (empty($name) || empty($description)) {
+        return $this->view->showError("Faltan datos para editar la categoría.", $request->user);
+    }
+    // verifico que exista la categoría
+    $category = $this->model->get($request->id);
+    if (!$category) {
+        return $this->view->showError("No existe la categoría con el id=$request->id", $request->user);
+    }
+    // actualizo en la base de datos
+    $this->model->update($request->id, $name, $description);
+
+    // redirijo al home
+    header('Location: ' . BASE_URL);
+   */
+}
 
 
     
 }
+
 
 
 
