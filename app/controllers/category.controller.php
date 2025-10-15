@@ -12,15 +12,15 @@ class CategoryController {
         $this->view = new CategoryView();
     }
 //creo la funcion mostrar productos, y adentro llamo a mostrar productos, pero de product.view
-    function showCategories() {
+    function showCategories($request) {
         // pido las tareas al modelo
         $categories = $this->model->getAll();
 
         // se las mando a la vista
-        $this->view->showCategories($categories);
+        $this->view->showCategories($categories, $request->user);
     }
 
-    function addProduct() {
+    function addProduct($request) {
         if (!isset($_POST['name']) || empty($_POST['name'])) {
             return $this->view->showError('Error: falta completar el modelo');
         }
@@ -38,21 +38,21 @@ class CategoryController {
         $id = $this->model->insert($name, $description);
 
         if (!$id) {
-            return $this->view->showError('Error la insertar la categoría');
+            return $this->view->showError('Error la insertar la categoría', $request->user);
 
         // redirijo al home //VER ESTO!!!!
         header('Location: ' . BASE_URL);
     }
 }
 
-    public function removeCategory($id) {
+    public function removeCategory($request) {
         // obtengo la tarea que quiero eliminar
-        $category = $this->model->get($id);
+        $category = $this->model->get($request-> $id);
 
         if (!$category) {
-            return $this->view->showError("No existe la categoría con el id=$id");
+            return $this->view->showError("No existe la categoría con el id=$request->id", $request->user);
         }
-        $this->model->remove($id);
+        $this->model->remove($request->id);
 
         // redirijo al home //VER ESTO 
         header('Location: ' . BASE_URL);
@@ -62,5 +62,6 @@ class CategoryController {
 
     
 }
+
 
 
