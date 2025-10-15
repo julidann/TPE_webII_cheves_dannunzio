@@ -1,4 +1,5 @@
 # Juli
+## HAY QUE VER LA RUTA DE LOS ROUTER EN HEADER.PHTML <li><a href="/web2TPE/juli/productos">Productos</a></li>
 ## Se modificaron:
 - Archivos .php a .phtml
 - Todos los request_once con .phtml
