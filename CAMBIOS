@@ -9,3 +9,5 @@ Juli --> lo que modifiqué-
 - Agregué en php myadmin la tabla de usuarios (despues subo el sql) 
     - id users password
 - hay que ver el tema de css
+- eliminar comentarios de los MVC
+-modifiqué categories.controller.php --> VER FUNCIÓN UPDATE!!!
