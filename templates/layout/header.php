@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Tienda digital</title>
+</head>
+<body>
+  <header class="main-header">
+    <h1>Tienda digital</h1>
+    <nav class="nav-bar">
+        <ul class="nav-list">
+            <li><a href="/web2TPE/juli/productos">Productos</a></li>
+            <li><a href="#">Nosotros</a></li>
+            <li><a href="/web2TPE/juli/login">Log-in</a></li>
+        </ul>
+    </nav>
+</header>

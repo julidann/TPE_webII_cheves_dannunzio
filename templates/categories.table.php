@@ -1,0 +1,32 @@
+<?php
+require_once 'templates/layout/header.php';
+?>
+
+<div>
+    <p>//BUSCADOR</p>
+</div>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $category) { ?>
+            <tr>
+                <td><?= $category->name ?></td>
+
+                <td><?= $category->description ?></td>
+                
+            </tr>
+            <?php } ?>
+           
+        </tbody>
+    </table>
+</div>
+
+<?php
+require_once 'templates/layout/footer.php';
+?>
