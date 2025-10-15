@@ -1,5 +1,7 @@
 # Juli
-## HAY QUE VER LA RUTA DE LOS ROUTER EN HEADER.PHTML href="/web2TPE/juli/productos">Productos
+## HAY QUE VER LA RUTA
+- <img width="670" height="108" alt="image" src="https://github.com/user-attachments/assets/7cdce30b-4282-4d62-abad-546e70d1cddd" />
+
 ## Se modificaron:
 - Archivos .php a .phtml
 - Todos los request_once con .phtml
