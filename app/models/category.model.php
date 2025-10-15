@@ -29,7 +29,7 @@ class CategoryModel {
     }
 
     function insert($name, $description) {
-        $query = $this->db->prepare("INSERT INTO categories(name, description) VALUES(?,?,?,?)");
+        $query = $this->db->prepare("INSERT INTO categories(name, description) VALUES(?,?)");
         $query->execute([$name, $description]);
 
         // var_dump($query->errorInfo());
@@ -44,7 +44,11 @@ class CategoryModel {
         // return $this->db->;
     }
 
-    //AGREGAR EL UPDATE
+    function update($id, $name, $description) {
+    $query = $this->db->prepare("UPDATE categories SET name = ?, description = ? WHERE id = ?");
+    $query->execute([$name, $description, $id]);
+}
 
     }
+
 
