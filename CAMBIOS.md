@@ -1,7 +1,11 @@
 # Juli
-## Se modificaron archivos a PHTML + los request_once
+## Se modificaron:
+- Archivos .php a .phtml
+- Todos los request_once con .phtml
 ## Se agregó en APP
   - Carpeta middlewares
+  - Templates
+    -main.phtml --> ESTO VER SI ES NECESARIO!!   
   - MVC USER creación:
     - Archivo auth.controler.php
     - Archivo user.model.php
