@@ -87,6 +87,69 @@ body{
 .btn-shop:hover {
     background-color: #005ea3;
 }
+/* Formulario de filtro */
+#form-filtro {
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+#form-filtro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#form-filtro div {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-filtro select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#form-filtro select:focus {
+    border-color: #0070c9;
+}
+
+#form-filtro button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #0070c9;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#form-filtro button:hover {
+    background-color: #005ea3;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    #form-filtro {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
 
 /*-----------PRODUCTOS-------------*/
 
@@ -130,7 +193,96 @@ body{
 }
 
 
-/*----------LOGIN-----------*/
+/*----------LOGIN MODERNO-----------*/
+
+/* Fondo de la página */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Formulario */
+.login-form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.login-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.login-form h2 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+/* Labels */
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Inputs */
+.login-form input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    background: rgba(255,255,255,0.8);
+    color: #333;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.login-form input:focus {
+    background: rgba(255,255,255,1);
+    transform: scale(1.02);
+}
+
+/* Botón */
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #000dff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.login-form button:hover {
+    background: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-form {
+        padding: 30px 20px;
+    }
+}
 
 
 /*-----FOOTER ----*/
