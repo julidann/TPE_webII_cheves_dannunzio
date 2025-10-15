@@ -5,7 +5,9 @@
 ## Se agregó en APP
   - Carpeta middlewares
   - Templates
-    -main.phtml --> ESTO VER SI ES NECESARIO!!   
+    - main.phtml --> ESTO VER SI ES NECESARIO!!
+    - form.login.phtml
+    - categories.table.phtml --> VER COMO IMPRIMIRLA! SI TABLA O CARDS 
   - MVC USER creación:
     - Archivo auth.controler.php
     - Archivo user.model.php
