@@ -11,9 +11,16 @@
     <h1>Tienda digital</h1>
     <nav class="nav-bar">
         <ul class="nav-list">
-            <li><a href="http://localhost/TPE_webII_cheves_dannunzio-main/productos">Productos</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="http://localhost/TPE_webII_cheves_dannunzio-main/login">Log-in</a></li>
+                        
+            <?php if (isset($_SESSION['USER_ID'])) { ?>
+            <li><a href="<?= BASE_URL ?>categorias">Categorias</a></li>
+            <li><a href="<?= BASE_URL ?>producto-nuevo">Productos</a></li>
+            
+            <li><a href="<?= BASE_URL ?>logout">Cerrar Sesión</a></li> 
+        <?php } else { ?>
+            <li><a href="<?= BASE_URL ?>home">Home</a></li>
+            <li><a href="<?= BASE_URL ?>login">Iniciar Sesión</a></li>
+        <?php } ?>
         </ul>
     </nav>
 </header>

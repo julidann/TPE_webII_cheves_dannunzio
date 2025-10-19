@@ -1,0 +1,39 @@
+<?php require_once 'layout/header.phtml'; ?>
+
+<div class="edit-category-wrapper"> 
+    <form action="<?= BASE_URL ?>editar-producto" method="POST" class="edit-form">
+        <h2>Editar Producto: <?= $product->name ?></h2>
+
+        <input type="hidden" name="id" value="<?= $product->id ?>">
+
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" value="<?= $product->name ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="img">URL de Imagen:</label>
+            <input type="url" name="img" id="img" value="<?= $product->img ?>" required>
+        </div>
+    <div class="form-group">
+            <label for="model">Modelo:</label>
+            <input type="text" name="model" id="model" value="<?= $product->model ?>" required>
+            </div>
+  
+         <div class="form-group">
+            <label for="price">Precio:</label>
+            <input type="number" name="price" id="price" value="<?= $product->price ?>" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción:</label>
+            <textarea name="description" id="description" required><?= $product->description ?></textarea>
+        </div>
+        
+        
+        <button type="submit">Guardar Cambios</button>
+        
+        <a href="<?= BASE_URL ?>categorias" class="btn-cancel">Cancelar</a>
+    </form>
+</div>
+
+<?php require_once 'layout/footer.phtml'; ?>

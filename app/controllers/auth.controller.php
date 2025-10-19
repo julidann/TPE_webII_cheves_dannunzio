@@ -25,10 +25,10 @@ class AuthController {
 
         $userFromDB = $this->userModel->getByUser($user);
 
-        if($userFromDB && password_verify($password, $userFromDB->contraseña)) {
+        if($userFromDB && password_verify($password, $userFromDB->password)) {
             $_SESSION['USER_ID'] = $userFromDB->id;
-            $_SESSION['USER_NAME'] = $userFromDB->usuario;
-            header("Location: ".BASE_URL."listar");
+            $_SESSION['USER_NAME'] = $userFromDB->users;
+            header("Location: ".BASE_URL."categorias");
             return;
         } else {
             return $this->view->showLogin("Usuario o contraseña incorrecta", $request->user);
@@ -42,4 +42,7 @@ class AuthController {
     }
 
 
+    
+
 }
+

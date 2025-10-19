@@ -62,6 +62,16 @@ class ProductController {
         // redirijo al home //VER ESTO!!!!
         header('Location: ' . BASE_URL);
     }
+    function showAddProductForm(){
+        $products = $this->model->getAll(); 
+        $this->view->showAddProductForm($products);
+
+    }
+    public function showEditFormProducts($id){
+        $product = $this->model->get($id);
+        $this->view->showEditFormProducts($product);
+
+    }
 
     public function removeProduct($id) {
         // obtengo la tarea que quiero eliminar
@@ -73,7 +83,7 @@ class ProductController {
         $this->model->remove($id);
 
         // redirijo al home //VER ESTO 
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL. 'producto-nuevo');
     }
 
 

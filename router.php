@@ -1,5 +1,6 @@
 <?php
 require_once './app/controllers/product.controller.php';
+require_once './app/controllers/category.controller.php';
 require_once './app/controllers/auth.controller.php'; 
 
 require_once './app/middlewares/session.middleware.php';
@@ -14,13 +15,13 @@ require_once './app/middlewares/guard.middleware.php';
  * login            ->     AuthController->showLogin()
  * 
  */
-//session_start(); -->VER QUE ES ESTO
+session_start();
 
 // base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
 // accion por defecto si no se envia ninguna
-$action = 'productos'; 
+$action = 'home'; 
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
@@ -32,28 +33,63 @@ $request = new StdClass();
 $request = (new SessionMiddleware())->run($request);
 
 switch ($params[0]) {
-    case 'productos':
+    case 'home':
         $controller = new ProductController();
         $controller->showProducts($request);
+        break;
+    case 'producto-nuevo':
+        // hay formulario 
+        $controller = new ProductController();
+        $controller->showAddProductForm();
+        break;
+    case 'categorias':
+        $controller = new CategoryController();
+        $controller->showCategories($request);
         break;
     case 'nueva':
         $controller = new ProductController();
         $controller->addProduct();
         break;
-    case 'eliminar':
+    case 'eliminar-producto':
+        $request = (new GuardMiddleware())->run($request);
         $controller = new ProductController();
         $id = $params[1];
         $controller->removeProduct($id);
         break;
-    /*case 'finalizar':
-        $controller = new ProductController();
+    case 'eliminar-categoria':
+         $request = (new GuardMiddleware())->run($request);
+        $controller = new CategoryController();
         $id = $params[1];
-        $controller->finalizeTask($id);
-        break;*/
+        $controller->removeCategory($id);
+        break;
+    case 'editar-categoria':
+    if (isset($params[1])) {
+        $id = $params[1];
+        $controller = new CategoryController();
+        $controller->showEditFormCategory($id); // Llama al método para obtener datos y mostrar la vista
+    }
+    break; 
+    case 'editar-producto':
+    if (isset($params[1])) {
+        $id = $params[1];
+        $controller = new ProductController();
+        $controller->showEditFormProducts($id); // Llama al método para obtener datos y mostrar la vista
+    }
+    break;       
+    case 'do_login':
+        $controller = new AuthController();
+        $controller->doLogin($request);
+        break;
     case 'login':
         $controller = new AuthController();
         $controller->showLogin($request);
         break;
+    case 'logout':
+        $request = (new GuardMiddleware())->run($request);
+        $controller = new AuthController();
+        $controller->logout($request);
+        break;
+
     default: 
         echo "404 Page Not Found";
         break;

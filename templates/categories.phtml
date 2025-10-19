@@ -1,0 +1,20 @@
+<?php require_once 'layout/header.phtml';
+      
+?>
+
+<div class="category-container">
+    <?php foreach ($categories as $category) { ?>
+        <div class="category-card">
+            <div id="category-name" class= "category-info"><?= $category->name ?></div>
+            <img src="<?= $category->img ?>" alt="<?= $category->name ?>" class="category-image">
+            <div class="category-info"><?= $category->description ?></div>
+            <button> <a href="eliminar-categoria\<?= $category->id ?>" class='btn btn-sm btn-success ml-auto'>Eliminar</a> </button>
+            <button>  <a class="btn btn-sm btn-danger" href="editar-categoria/<?= $category->id ?>">Editar</a> </button>
+        </div>
+    
+    <?php } ?>
+</div>
+
+<?php require_once 'layout/footer.phtml'; ?>
+
+

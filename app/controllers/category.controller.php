@@ -15,12 +15,11 @@ class CategoryController {
     function showCategories($request) {
         // pido las tareas al modelo
         $categories = $this->model->getAll();
-
         // se las mando a la vista
-        $this->view->showCategories($categories, $request->user);
+        $this->view->showCategories($categories);
     }
 
-    function addProduct($request) {
+    function addCategory($request) {
         if (!isset($_POST['name']) || empty($_POST['name'])) {
             return $this->view->showError('Error: falta completar el modelo');
         }
@@ -38,25 +37,33 @@ class CategoryController {
         $id = $this->model->insert($name, $description);
 
         if (!$id) {
-            return $this->view->showError('Error la insertar la categoría', $request->user);
+            return $this->view->showError('Error al insertar la categoría');
+        }
 
-        // redirijo al home //VER ESTO!!!!
+        // redirijo al home
         header('Location: ' . BASE_URL);
     }
-}
 
-    public function removeCategory($request) {
-        // obtengo la tarea que quiero eliminar
-        $category = $this->model->get($request-> id);
+    // $id is passed from the router as a string/int
+    public function removeCategory($id) {
+        // obtengo la categoría que quiero eliminar
+        $category = $this->model->get($id);
 
         if (!$category) {
-            return $this->view->showError("No existe la categoría con el id=$request->id", $request->user);
+            return $this->view->showError("No existe la categoría con el id=$id");
         }
-        $this->model->remove($request->id);
+        $this->model->remove($id);
 
-        // redirijo al home //VER ESTO 
+        // redirijo al home
         header('Location: ' . BASE_URL);
     }
+    
+    public function showEditFormCategory($id){
+        $category = $this->model->get($id);
+        $this->view->showEditFormCategory($category);
+
+    }
+    
     /* RECHEQUEAR
     public function editCategory($request) {
     // obtengo los datos del formulario
@@ -82,7 +89,7 @@ class CategoryController {
 
 
     
-}
+
 
 
 
