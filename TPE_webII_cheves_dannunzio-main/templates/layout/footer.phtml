@@ -1,0 +1,10 @@
+</main>
+<footer>
+    <ul>
+        <li>Contacto</li>
+        <li>Dirección</li>
+        <li>Preguntas frecuentes</li>
+    </ul>
+    <p>2025 Todos los derechos reservados</p>
+    
+</footer>
