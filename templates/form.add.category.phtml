@@ -1,8 +1,9 @@
 <?php require_once 'layout/header.phtml'; ?>
 
 <div class="">
-    <form action="<?= BASE_URL ?>categorias" method="POST" class="">
-        <h2>Agregar Nueva Categoría</h2>
+    <!-- envia el submit(inf) a /categorias -->
+    <form action="<?= BASE_URL ?>nueva" method="POST" class="form-producto">
+        <h2>Agregar Nueva Categoríza</h2>
 
         <div class="form-group">
             <label for="name">Nombre:</label>
@@ -24,4 +25,4 @@
     </form>
 </div>
 
-<?php require_once 'layout/footer.phtml'; ?>
+<?php// require_once 'layout/footer.phtml'; ?>

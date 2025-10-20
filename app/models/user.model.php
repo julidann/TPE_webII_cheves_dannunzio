@@ -1,21 +1,20 @@
 <?php
+require_once __DIR__ .'/../../config/config.php';
+require_once __DIR__ .'/model.php';
 
-class UserModel {
-    private $db;
+class UserModel extends Model{
 
-    function __construct() {
-     // 1. abro conexión con la DB
-     $this->db = new PDO('mysql:host=localhost;dbname=devices;charset=utf8', 'root', '');
-    }
-
+    // busca el usuario en la bd usuarios
     public function get($id) {
         $query = $this->db->prepare('SELECT * FROM users WHERE id = ?');
         $query->execute([$id]);
+
         $user = $query->fetch(PDO::FETCH_OBJ);
 
         return $user;
     }
 
+    // no,no ? podria buscar si es ADMIN
     public function getByUser($user) {
         $query = $this->db->prepare('SELECT * FROM users WHERE name = ?');
         $query->execute([$user]);
@@ -24,6 +23,7 @@ class UserModel {
         return $user;
     }
     
+    // no, no?
     public function getAll() {
         // 2. ejecuto la consulta SQL (SELECT * FROM tareas)
         $query = $this->db->prepare('SELECT * FROM users');
@@ -35,7 +35,10 @@ class UserModel {
         return $users;
     }
 
+    // p/ registrarse )?
     function insert($name, $password) {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
         $query = $this->db->prepare("INSERT INTO users(user, password) VALUES(?,?)");
         $query->execute([$name, $password]);
 

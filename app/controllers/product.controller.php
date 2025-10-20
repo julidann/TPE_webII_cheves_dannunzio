@@ -1,5 +1,5 @@
 <?php
-//me traigo el modelo y view de productos
+
 require_once './app/models/product.model.php';
 require_once './app/views/product.view.php';
 
@@ -11,14 +11,10 @@ class ProductController {
         $this->model = new ProductModel();
         $this->view = new ProductView();
     }
-//creo la funcion mostrar productos, y adentro llamo a mostrar productos, pero de product.view
 
-    
     function showProducts() {
-        // pido las tareas al modelo
+        
         $products = $this->model->getAll();
-
-        // se las mando a la vista
         $this->view->showProducts($products);
     }
 
@@ -55,19 +51,44 @@ class ProductController {
 
         $id = $this->model->insert($name, $img, $model, $price, $description, $id_category);
 
+       
         if (!$id) {
             return $this->view->showError('Error la insertar el producto');
         } 
 
-        // redirijo al home //VER ESTO!!!!
         header('Location: ' . BASE_URL);
     }
     function showAddProductForm(){
+        // esta linea? 1ra
         $products = $this->model->getAll(); 
         $this->view->showAddProductForm($products);
 
     }
+
+    function updateProduct(){
+        if (!isset($_POST['id']) || empty($_POST['id'])) {
+            return $this->view->showError('Error: ID de producto no especificado');
+        }
+
+        $name = $_POST['name'];
+        $img = $_POST['img'];
+        $model = $_POST['model'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+        $id_category = $_POST['id_category'];
+
+        // Intenta actualizar y verifica resultado
+        $success = $this->model->update($id, $name, $img, $model, $price, $description, $id_category);
+
+        if (!$success) {
+            return $this->view->showError('Error al actualizar el producto');
+        }
+
+        header('Location: ' . BASE_URL);
+    }
+
     public function showEditFormProducts($id){
+        
         $product = $this->model->get($id);
         $this->view->showEditFormProducts($product);
 

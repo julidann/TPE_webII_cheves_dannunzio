@@ -17,10 +17,8 @@ require_once './app/middlewares/guard.middleware.php';
  */
 session_start();
 
-// base_url para redirecciones y base tag
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
-// accion por defecto si no se envia ninguna
 $action = 'home'; 
 if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
@@ -34,6 +32,7 @@ $request = (new SessionMiddleware())->run($request);
 
 switch ($params[0]) {
     case 'home':
+
         $controller = new ProductController();
         $controller->showProducts($request);
         break;
@@ -41,27 +40,38 @@ switch ($params[0]) {
         // hay formulario 
         $controller = new ProductController();
         $controller->showAddProductForm();
+
+        $controller1 = new CategoryController();
+        $controller1->showAddCategoryForm();
         break;
+
     case 'categorias':
         $controller = new CategoryController();
         $controller->showCategories($request);
         break;
-    case 'nueva':
+
+    case 'nueva': // addProduct valua lo que envia producto-nuevo e
         $controller = new ProductController();
         $controller->addProduct();
+        $controller1 = new CategoryController();
+        $controller1->addCategory();
         break;
+
     case 'eliminar-producto':
         $request = (new GuardMiddleware())->run($request);
         $controller = new ProductController();
+        // el 2do parametro ( id del borrado)
         $id = $params[1];
         $controller->removeProduct($id);
         break;
     case 'eliminar-categoria':
-         $request = (new GuardMiddleware())->run($request);
+        $request = (new GuardMiddleware())->run($request);
         $controller = new CategoryController();
         $id = $params[1];
         $controller->removeCategory($id);
         break;
+
+
     case 'editar-categoria':
     if (isset($params[1])) {
         $id = $params[1];
@@ -74,8 +84,15 @@ switch ($params[0]) {
         $id = $params[1];
         $controller = new ProductController();
         $controller->showEditFormProducts($id); // Llama al método para obtener datos y mostrar la vista
+        //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        //    $controller->updateProduct();
+        //}    
     }
     break;       
+    case 'edita':
+        $controller = new ProductController();
+        $controller->updateProduct();
+    break;
     case 'do_login':
         $controller = new AuthController();
         $controller->doLogin($request);

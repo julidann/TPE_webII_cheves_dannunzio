@@ -11,15 +11,14 @@ class CategoryController {
         $this->model = new CategoryModel();
         $this->view = new CategoryView();
     }
-//creo la funcion mostrar productos, y adentro llamo a mostrar productos, pero de product.view
+
     function showCategories($request) {
-        // pido las tareas al modelo
+        
         $categories = $this->model->getAll();
-        // se las mando a la vista
         $this->view->showCategories($categories);
     }
 
-    function addCategory($request) {
+    function addCategory() {
         if (!isset($_POST['name']) || empty($_POST['name'])) {
             return $this->view->showError('Error: falta completar el modelo');
         }
@@ -27,21 +26,24 @@ class CategoryController {
             return $this->view->showError('Error: falta completar la descripción');
         }
 
-
         // obtengo los datos del formulario
         $name = $_POST['name'];
-       
         $description = $_POST['description'];
-    
+        $img = $_POST['img'];
 
-        $id = $this->model->insert($name, $description);
+        $id = $this->model->insert($name, $description, $img);
 
         if (!$id) {
             return $this->view->showError('Error al insertar la categoría');
         }
 
-        // redirijo al home
         header('Location: ' . BASE_URL);
+    }
+
+    // agreamos form en ..
+    function showAddCategoryForm(){
+        $categories = $this->model->getAll(); 
+        $this->view->showAddCategoriesForm($categories);
     }
 
     // $id is passed from the router as a string/int

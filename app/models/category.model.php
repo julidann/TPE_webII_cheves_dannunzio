@@ -1,14 +1,10 @@
 <?php
+require_once __DIR__ .'/../../config/config.php';
+require_once __DIR__ .'/model.php';
 
-class CategoryModel {
-    private $db;
 
-    function __construct()
-    {
-        //abro conexion con la db
-        $this->db = new PDO('mysql:host=localhost;dbname=devices;charset=utf8', 'root', '');
-    }
-
+class CategoryModel extends Model{
+    
     public function get ($id){
         $query = $this->db->prepare('SELECT * FROM categories WHERE id = ?');
         $query->execute([$id]);
@@ -18,7 +14,7 @@ class CategoryModel {
     }
 
      public function getAll() {
-        // 2. ejecuto la consulta SQL (SELECT * FROM tareas)
+        // 2. ejecuto la consulta SQL 
         $query = $this->db->prepare('SELECT * FROM categories');
         $query->execute();
 
@@ -28,11 +24,11 @@ class CategoryModel {
         return $category;
     }
 
-    function insert($name, $description) {
-        $query = $this->db->prepare("INSERT INTO categories(name, description) VALUES(?,?)");
-        $query->execute([$name, $description]);
+    function insert($name, $description, $img) {
+        $query = $this->db->prepare("INSERT INTO categories(name, description,img) VALUES(?,?,?)");
+        $query->execute([$name, $description, $img]);
 
-        // var_dump($query->errorInfo());
+        var_dump($query->errorInfo());
 
         return $this->db->lastInsertId();
     }
@@ -41,14 +37,12 @@ class CategoryModel {
         $query = $this->db->prepare('DELETE from categories where id = ?');
         $query->execute([$id]);
 
-        // return $this->db->;
     }
 
     function update($id, $name, $description) {
-    $query = $this->db->prepare("UPDATE categories SET name = ?, description = ? WHERE id = ?");
-    $query->execute([$name, $description, $id]);
-}
-
+        $query = $this->db->prepare("UPDATE categories SET name = ?, description = ? WHERE id = ?");
+        $query->execute([$name, $description, $id]);
     }
+}
 
 

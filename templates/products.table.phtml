@@ -3,8 +3,33 @@
       require_once './templates/form.filtro.phtml';
 ?>
 
+<form method="GET" class="filter-form">
+    <label for="category">Categorías </label>
+    <select name="category" id="category" onchange="this.form.submit()">
+
+        <option value="">Todas</option>
+        <?php foreach ($categories as $category) { ?>
+
+            <option value="<?= $category->id ?>">
+                <?= $category->name ?>
+                
+
+                <?= (isset($_GET['category']) && $_GET['category'] == $category->id) ? 'selected' : '' ?>>
+                <?= $category->name ?>
+            </option>
+        <?php } ?>
+    </select>
+</form>
+
+
 <div class="products-container">
+    <?php
+    // Guardamos el valor seleccionado (o vacío si no hay selección)
+    $selectedCategory = $_GET['category'] ?? '';        
+
+
     <?php foreach ($products as $product) { ?>
+        <? if ($selectedCategory === '' || $product->category_id == $selectedCategory){ ?>
         <div class="product-card">
             <div id="product-name" class= "product-info"><?= $product->name ?></div>
             
@@ -14,6 +39,7 @@
             <div class="product-info"><?= $product->description ?></div>
             <div class="product-info">Categoría: <?= $product->category_name ?></div>
         </div>
+        <?php } ?>
     <?php } ?>
 </div>
 

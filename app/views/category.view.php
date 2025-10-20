@@ -6,6 +6,11 @@ class CategoryView {
 
         require_once './templates/categories.phtml';
     }
+    public function showAddCategoriesForm ($category){
+        $count = count($category);
+        require_once './templates/form.add.category.phtml';
+    }
+
     public function showEditFormCategory ($category){
         
         require_once './templates/form.edit.categories.phtml';

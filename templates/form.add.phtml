@@ -1,11 +1,11 @@
 <?php require_once 'layout/header.phtml'; ?>
 
-<div class="">
-    <form action="<?= BASE_URL ?>nueva" method="POST" class="form-producto">
+<div class="container">
+    <form action="<?= BASE_URL ?>nueva" method="POST" class="login-form">
         <h2>Agregar Nuevo Producto</h2>
 
         <div class="form-group">
-            <label for="name">Nombreee:</label>
+            <label for="name">Nombre:</label>
             <input type="text" name="name" id="name" required>
         </div>
 
@@ -30,21 +30,15 @@
         </div>
 
         <div class="form-group">
-            
             <label for="id_category">Categoría:</label>
             <select name="id_category" id="id_category" required>
-
-                <option value="1">iPhone / iPad / Mac</option>
-                <option value="2">Apple Watch</option>
-                <option value="3">AirPods</option>
-                <option value="4">HomePod / Apple TV</option>
-                <option value="5">Accesorios</option>
+                
+                <option value="">Seleccione una categoría</option>
             </select>
         </div>
 
         <button type="submit">Agregar Producto</button>
     </form>
 </div>
-<?php require_once './templates/form.add.category.phtml'; ?>
-<?php require_once 'products.phtml'; ?>
+
 <?php require_once 'layout/footer.phtml'; ?>
