@@ -33,6 +33,7 @@ switch ($params[0]) {
 
     // --------- PRODUCTOS ---------
     case 'productos':
+        $request = (new GuardMiddleware())->run($request);
         $controller = new ProductController();
         $controller->showProducts($request);
         break;
@@ -146,3 +147,4 @@ switch ($params[0]) {
         echo "404 Page Not Found";
         break;
 }
+
