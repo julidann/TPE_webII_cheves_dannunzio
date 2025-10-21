@@ -12,6 +12,7 @@ session_start();
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
+
 $action = 'home';
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -86,19 +87,19 @@ switch ($params[0]) {
         $controller = new ProductController();
         if ($id) $controller->showProductsByCategory($id);
         break;
- // ESTO HAY QUE CORREGIR !!!!
-
- //http://localhost/TPE_webII_cheves_dannunzio-main/categoria-filtro?category_id=1
-
- //URL SEMÁNTICA 
-   /* case 'categoria-filtro':
-        $controller = new ProductController();
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $category_id = $_GET['category_id'] ?? null;
-            $controller->showProductsByCategory($category_id);
-        }
-        break;*/
-
+    case 'categoria-filtro':
+    
+    $category_id = $params[1] ?? null; 
+    
+    $controller = new HomeController();
+    
+    if ($category_id) {
+        $controller->showProductsByCategory($category_id); 
+    } else {
+        $controller->showHome(); 
+    }
+    break;
+    
     case 'agregar-categoria':
         $controller = new CategoryController();
         $controller->addCategory();

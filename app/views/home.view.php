@@ -15,7 +15,7 @@ class HomeView{
         require_once './templates/categories.detail.phtml';
     }
     public function showError($error) {
-        // Puedes usar una plantilla de error si quieres
+    
         echo "<h1>Error: $error</h1>";
     }
 }

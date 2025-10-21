@@ -39,7 +39,14 @@ README:
 ### Código SQL
   - [SQL](./devices.sql)
 
+### Instrucciones para importar la base de datos en PHPMyAdmin
 
+Abre phpMyAdmin en tu navegador.
+Crea una nueva base de datos llamada devices.
+Selecciona la base de datos devices.
+Haz clic en la pestaña Importar.
+Haz clic en Seleccionar archivo y elige el archivo database/devices.sql de este proyecto.
+Presiona Continuar para importar las tablas y datos.
 
 
 

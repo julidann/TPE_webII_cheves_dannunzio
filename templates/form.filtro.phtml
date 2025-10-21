@@ -1,25 +1,9 @@
-
-<form id="form-filtro" action="<?= BASE_URL ?>categoria-filtro" method="GET">
-    
-    <h2>Buscar por Categoría</h2>
-
-    
-    <div>
-        <label for="category_id">Categoría</label>
-        <select name="category_id" id="category_id">
-            
-            <option value="">Todas las Categorías</option>
-            
-            <?php foreach ($categories as $category) { ?>
-                <option value="<?= $category->id ?>">
-                    <?= $category->name ?>
-                </option>
-            <?php } ?>
-        </select>
-    </div>
-    
-
-    <div>
-        <button type="submit">Aplicar Filtro</button>
-    </div>
+ <form id="form-filtro" action="<?= BASE_URL ?>" method="GET">
+    <select name="category_id">
+        <option value="">Todas las Categorías</option>
+        <?php foreach ($categories as $category){ ?>
+            <option value="<?= $category->id ?>"><?= $category->name ?></option>
+        <?php } ?>
+    </select>
+    <button type="submit" >Aplicar Filtro</button>
 </form>

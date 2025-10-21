@@ -13,33 +13,30 @@ class CategoryModel extends Model{
         return $category;
     }
 
-     public function getAll() {
-        // 2. ejecuto la consulta SQL 
+    public function getAll() {
+       
         $query = $this->db->prepare('SELECT * FROM categories');
         $query->execute();
-
-        // 3. obtengo los resultados de la consulta
+        
         $category = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $category;
     }
 
-    function insert($name, $description, $img) {
+    public function insert($name, $description, $img) {
         $query = $this->db->prepare("INSERT INTO categories(name, description,img) VALUES(?,?,?)");
         $query->execute([$name, $description, $img]);
-
-        var_dump($query->errorInfo());
 
         return $this->db->lastInsertId();
     }
 
-    function remove($id) {
+    public function remove($id) {
         $query = $this->db->prepare('DELETE from categories where id = ?');
         $query->execute([$id]);
 
     }
 
-    function update($id, $name, $description, $img) {
+    public function update($id, $name, $description, $img) {
         $query = $this->db->prepare("UPDATE categories SET name = ?, description = ?, img = ? WHERE id = ?");
         $result =$query->execute([$name, $description, $img, $id]);
         return $result;

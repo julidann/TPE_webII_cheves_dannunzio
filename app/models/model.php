@@ -14,4 +14,3 @@ class Model {
         }
     }
 }
-// Si querés probar la conexión rápidamente, crea un script de prueba que instancie Model y haga var_dump($model).

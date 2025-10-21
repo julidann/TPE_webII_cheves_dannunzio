@@ -1,17 +1,13 @@
 <?php
-
 require_once './app/models/product.model.php';
 require_once './app/views/product.view.php';
 require_once './app/models/category.model.php';
-
 
 class ProductController
 {
     private $model;
     private $view;
    
-
-
     function __construct()
     {
         $this->model = new ProductModel();
@@ -19,16 +15,14 @@ class ProductController
         
     }
 
-    public function showProducts()
-    {
+    public function showProducts(){
         $products = $this->model->getAll();
         $categoryModel = new CategoryModel();
     $categories = $categoryModel->getAll();
         $this->view->showProducts($products, $categories);
     }
 
-    public function showProductDetail($id)
-    {
+    public function showProductDetail($id){
 
         $product = $this->model->get($id);
         if (!$product) {
@@ -37,8 +31,7 @@ class ProductController
         $this->view->showProductDetail($product);
     }
 
-    public function showAddProductForm()
-    { 
+    public function showAddProductForm(){ 
     $categoryModel = new CategoryModel(); 
     $categories = $categoryModel->getAll(); 
     $this->view->showAddProductForm($categories);
@@ -51,7 +44,7 @@ class ProductController
         }
         $this->view->showEditFormProducts($product, $categories);
     }
-
+   
     public function addProduct(){
         $categoryModel = new CategoryModel();
         $categories = $categoryModel->getAll();
@@ -78,7 +71,6 @@ class ProductController
             return $this->view->showError('Error: falta completar la categoría');
         }
 
-        // obtengo los datos del formulario
         $name = $_POST['name'];
         $img = $_POST['img'];
         $model = $_POST['model'];
@@ -99,7 +91,6 @@ class ProductController
         $this->view->showAddProductForm($categories);
     }
 }
-
 
     public function updateProduct($id){
         $categoryModel = new CategoryModel();
@@ -150,8 +141,7 @@ class ProductController
     }
 
 
-    public function removeProduct($id)
-    {
+    public function removeProduct($id){
         // obtengo la tarea que quiero eliminar
         $product = $this->model->get($id);
 
@@ -164,8 +154,7 @@ class ProductController
         header('Location: ' . BASE_URL . 'productos');
     }
 
-    public function showProductsByCategory($id_categoria)
-    {
+    public function showProductsByCategory($id_categoria){
         $products = $this->model->getProductsByCategory($id_categoria);
         $category = $this->model->get($id_categoria);
         $this->view->showProductsByCategory($products, $category);

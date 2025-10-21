@@ -1,28 +1,38 @@
-<?php require_once 'layout/header.phtml';
-require_once 'form.add.category.phtml';
-      
-?>
-<div class="category-container">
-    <?php foreach ($categories as $category) { ?>
-        <div class="category-card">
-            <div id="category-name" class= "category-info"><?= $category->name ?></div>
-            <img src="<?= $category->img ?>" alt="<?= $category->name ?>" class="category-image">
-            <div class="category-info"><?= $category->description ?></div>
+<?php require_once 'layout/header.phtml'; 
+      require_once './templates/form.add.category.phtml';
+    ?>
 
-            <a href="<?= BASE_URL ?>categoria/<?= $category->id ?>" class="btn category-link">
-                Ver más
-            </a>
-            <button> <a href="eliminar-categoria\<?= $category->id ?>" class='btn btn-sm btn-success ml-auto'>Eliminar</a> </button>
-            <button>  <a class="btn btn-sm btn-danger" href="editar-categoria/<?= $category->id ?>">Editar</a> </button>
-        </div>
+<main class="content-wrapper">
     
-    <?php } ?>
-</div>
+    <div class="category-grid-container"> 
+        
+        <?php foreach ($categories as $category) { ?>
+            
+            <article class="category-card">
+                
+                <a href="<?= BASE_URL ?>categoria/<?= $category->id ?>" class="card-link">
 
-<?php 
+                    <h3 class="category-card__name"><?= $category->name ?></h3>
+                    
+                    <img src="<?= $category->img ?>" alt="<?= $category->name ?>" class="category-card__image">
+                    
+                    <p class="category-card__description"><?= $category->description ?></p>
+                    
+                   
+                    
+                </a>
 
-require_once 'layout/footer.phtml'; 
-?>
+                <div class="category-card__actions">
+                    <a href="<?= BASE_URL ?>eliminar-categoria/<?= $category->id ?>" class='btn btn-danger btn-sm' 
+                       onclick="return confirm('¿Seguro que quieres eliminar esta categoría?');">Eliminar</a> 
+                    <a class="btn btn-warning btn-sm" href="<?= BASE_URL ?>editar-categoria/<?= $category->id ?>">Editar</a> 
+                </div>
 
+            </article>
+        
+        <?php } ?>
+    </div>
+    
+</main>
 
-
+<?php require_once 'layout/footer.phtml'; ?>
