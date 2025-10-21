@@ -1,7 +1,7 @@
 <?php require_once 'layout/header.phtml'; ?>
 
 <div class="edit-category-wrapper"> 
-    <form action="<?= BASE_URL ?>editar-categoria" method="POST" class="edit-form">
+    <form action="<?= BASE_URL ?>editar-categoria/<?= $category->id ?>" method="POST" class="edit-form">
         <h2>Editar Categoría: <?= $category->name ?></h2>
 
         <input type="hidden" name="id" value="<?= $category->id ?>">

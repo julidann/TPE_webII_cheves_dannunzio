@@ -5,15 +5,19 @@
 
 <div class="products-container">
     <?php foreach ($products as $product) { ?>
-        <div class="product-card">
+        
+        <div class="product-card">      
             <div id="product-name" class= "product-info"><?= $product->name ?></div>
-            
             <img src="<?= $product->img ?>" alt="<?= $product->name ?>" class="product-image">
             <div class="product-info">Modelo: <?= $product->model ?></div>
             <div class="product-info">Precio: $<?= $product->price ?></div>
             <div class="product-info"><?= $product->description ?></div>
             <div class="product-info">Categoría: <?= $product->category_name ?></div>
+            <a href="<?= BASE_URL ?>producto/<?= $product->id ?>" class="btn product-link">
+                Ver más
+            </a>
         </div>
+        
     <?php } ?>
 </div>
 

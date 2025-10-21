@@ -1,0 +1,51 @@
+<?php require_once 'layout/header.phtml'; ?>
+
+<div class="products-grid-container">
+    
+    <?php if (empty($products)) { ?>
+        <div class="empty-state">
+            <p>No se encontraron productos para mostrar.</p>
+        </div>
+    <?php } else { ?>
+
+        <?php foreach ($products as $product) { ?>
+            
+            <div class="product-card">
+                
+                <a href="<?= BASE_URL ?>producto/<?= $product->id ?>" class="card-link">
+                    
+                    <div class="card-image-container">
+                        <img src="<?= $product->img ?>" alt="Imagen de <?= $product->name ?>" class="card-image">
+                    </div>
+
+                    <div class="card-content">
+                        
+                        <h3 class="card-title"><?= $product->name ?></h3>
+                        
+                        <p class="card-model">Modelo: <strong><?= $product->model ?></strong></p>
+                        
+                        <p class="card-price">Precio: **$<?= number_format($product->price, 2, ',', '.') ?>**</p>
+                        
+                        <p class="card-description"><?= substr($product->description, 0, 80) ?>...</p>
+
+                        <p class="card-category">Categoría ID: **<?= $product->id_category ?>**</p>
+                    </div>
+                </a>
+
+                <div class="card-actions">
+                    <a href="<?= BASE_URL ?>editar-producto/<?= $product->id ?>" class="btn btn-warning">
+                        Editar
+                    </a>
+                    <a href="<?= BASE_URL ?>eliminar-producto/<?= $product->id ?>" class="btn btn-danger" 
+                       onclick="return confirm('¿Eliminar <?= $product->name ?>?');">
+                        Eliminar
+                    </a>
+                </div>
+            </div>
+        <?php } ?>
+
+    <?php } ?>
+
+</div>
+
+<?php require_once 'layout/footer.phtml'; ?>

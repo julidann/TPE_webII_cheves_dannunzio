@@ -3,11 +3,11 @@
 class CategoryView {
     public function showCategories ($categories){
         $count = count($categories);
-
+        
         require_once './templates/categories.phtml';
     }
-    public function showAddCategoriesForm ($category){
-        $count = count($category);
+    public function showAddCategoriesForm ($categories){
+        $count = count($categories);
         require_once './templates/form.add.category.phtml';
     }
 

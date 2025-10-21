@@ -39,9 +39,10 @@ class CategoryModel extends Model{
 
     }
 
-    function update($id, $name, $description) {
-        $query = $this->db->prepare("UPDATE categories SET name = ?, description = ? WHERE id = ?");
-        $query->execute([$name, $description, $id]);
+    function update($id, $name, $description, $img) {
+        $query = $this->db->prepare("UPDATE categories SET name = ?, description = ?, img = ? WHERE id = ?");
+        $result =$query->execute([$name, $description, $img, $id]);
+        return $result;
     }
 }
 

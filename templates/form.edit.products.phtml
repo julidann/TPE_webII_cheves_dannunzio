@@ -28,11 +28,24 @@
             <label for="description">Descripción:</label>
             <textarea name="description" id="description" required><?= $product->description ?></textarea>
         </div>
+
+        <div class="form-group">
+    <label for="id_category">Categoría:</label>
+    <select name="id_category" id="id_category" required>
+        <option value="">-- Seleccione una categoría --</option>
+        <?php foreach ($categories as $category) { ?>
+            <option value="<?= $category->id ?>"
+                <?= ($product->id_category == $category->id) ? 'selected' : '' ?>>
+                <?= $category->name ?>
+            </option>
+        <?php } ?>
+    </select>
+        </div>
+        <div> 
+            <button type="submit">Guardar Cambios</button>
         
+        <a href="<?= BASE_URL ?>productos" class="btn-cancel">Cancelar</a></div>
         
-        <button type="submit">Guardar Cambios</button>
-        
-        <a href="<?= BASE_URL ?>categorias" class="btn-cancel">Cancelar</a>
     </form>
 </div>
 

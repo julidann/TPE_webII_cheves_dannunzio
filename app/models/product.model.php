@@ -14,14 +14,22 @@ class ProductModel extends Model{
     }
 
     public function getAll() {
-        // 2. ejecuto la consulta SQL (SELECT * FROM productos)
+     
         $query = $this->db->prepare( 'SELECT p.*, c.name AS category_name FROM products p JOIN categories c ON p.id_category = c.id');
         $query->execute();
 
-        // 3. obtengo los resultados de la consulta
+       
         $product = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $product;
+    }
+    public function getProductsByCategory($id_categoria) {
+        $query = $this->db->prepare('SELECT p.*, c.name AS category_name 
+         FROM products p 
+         JOIN categories c ON p.id_category = c.id
+         WHERE p.id_category = ?');
+        $query->execute([$id_categoria]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
     function insert($name, $img, $model, $price, $description, $id_category) {
@@ -30,8 +38,6 @@ class ProductModel extends Model{
 
         $query = $this->db->prepare("INSERT INTO products(name,img, model, price, description,id_category) VALUES(?,?,?,?,?,?)");
         $query->execute([$name, $img, $model, $price,$description, $id_category]);
-
-        var_dump($query->errorInfo());
 
         return $this->db->lastInsertId();
     }
