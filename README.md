@@ -5,10 +5,10 @@ README:
 
   - Cheves Nicolas, nicocheves99@gmail.com
   - D'Annunzio Julieta, dannunzio.julieta@gmail.com
-
+---
 ### Temática del Trabajo Especial 
 - Catálogo de productos para una tienda de dispositivos tecnológicos Apple.
-
+  
 ### Descripción del tema
 - Desarrollo de sitio web tipo catálogo para un local que vende dispositivos tecnológicos de la marca Apple.
 - Todos los usuarios pueden visualizar los productos y sus categorías, pero solo el administrador puede crear, modificar o eliminar productos y categorías, una vez que inicie sesión. 
@@ -37,20 +37,55 @@ README:
     - password                   VARCHAR
 
 ### Código SQL
-  - [SQL](./devices.sql)
-
+  - [SQL](database/devices.sql)
+---
 ### Instrucciones para importar la base de datos en PHPMyAdmin
 
-Abrir phpMyAdmin en el navegador.
-Crear una nueva base de datos llamada **devices**.
-Selecciona la base de datos **devices**
-Hacer clic en la pestaña Importar.
-Hacer clic en Seleccionar archivo y elige el archivo database/devices.sql de este proyecto.
-Presiona Continuar para importar las tablas y datos.
-
+  - Abrir phpMyAdmin en el navegador.
+  - Crear una nueva base de datos llamada **devices**.
+  - Selecciona la base de datos **devices**
+  - Hacer clic en la pestaña Importar.
+  - Hacer clic en Seleccionar archivo y elige el archivo database/devices.sql de este proyecto.
+  - Presiona Continuar para importar las tablas y datos.
+---
 ### Iniciar sesión:
 Usuario : webadmin
 Contraseña : admin
+---
+### Explicación del directorio /templates: 
+
+#### HOME
+
+| Archivo | Descripción |
+| :--- | :--- |
+| `home.phtml` | Plantilla principal para la **Página de Inicio** (Home). |
+
+---
+
+#### PRODUCTOS
+
+| Tipo de Vista | Archivo | Descripción |
+| :---: | :--- | :--- |
+| **Listado** | `products.phtml` | Muestra el listado general de todos los productos. |
+| **Detalle** | `products.detail.phtml` | Presenta la información detallada de un producto específico. |
+| **Formulario** | `form.add.product.phtml` | Formulario para la **creación** de un nuevo producto. |
+| **Formulario** | `form.edit.product.phtml` | Formulario para la **edición** de un producto existente. |
+
+---
+
+#### CATEGORÍAS
+
+| Tipo de Vista | Archivo | Descripción |
+| :---: | :--- | :--- |
+| **Listado** | `categories.phtml` | Muestra el listado general de todas las categorías. |
+| **Detalle** | `categories.detail.phtml` | Presenta la información detallada de una categoría específica. |
+| **Formulario** | `form.add.categories.phtml` | Formulario para la **creación** de una nueva categoría. |
+| **Formulario** | `form.edit.categories.phtml` | Formulario para la **edición** de una categoría existente. |
+
+---
+
+
+
 
 
 
