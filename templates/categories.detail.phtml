@@ -32,15 +32,17 @@
                     </div>
                 </a>
 
-                <div class="card-actions">
-                    <a href="<?= BASE_URL ?>editar-producto/<?= $product->id ?>" class="btn btn-warning btn-sm">
-                        Editar
-                    </a>
-                    <a href="<?= BASE_URL ?>eliminar-producto/<?= $product->id ?>" class="btn btn-danger btn-sm" 
-                       onclick="return confirm('¿Eliminar <?= $product->name ?>?');">
-                        Eliminar
-                    </a>
+            <?php if(isset($user)): ?>
+                <div class="actions">
+                    <?php if (!$product->finalizada) { ?>
+                        <a href="finalizar/<?= $product->id ?>" class='btn btn-sm btn-success ml-auto'>FINALIZAR</a>
+                    <?php } ?>
+
+                    <a class="btn btn-sm btn-danger" href="eliminar/<?= $product->id ?>">ELIMINAR</a>
                 </div>
+            <?php endif; ?>
+
+
             </div>
         <?php } ?>
 
