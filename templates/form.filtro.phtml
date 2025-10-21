@@ -16,9 +16,10 @@ function redirigirCategoria() {
     if (categoriaId) {
         window.location.href = '<?= BASE_URL ?>categoria/' + categoriaId;
     } else {
-        window.location.href = '<?= BASE_URL ?>productos';
+        window.location.href = '<?= BASE_URL ?>home';
     }
 
     return false; 
 }
+
 </script>
