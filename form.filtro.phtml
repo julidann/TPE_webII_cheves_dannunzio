@@ -1,0 +1,24 @@
+<form id="form-filtro" action="" method="GET" onsubmit="return redirigirCategoria()">
+    <select id="select-categoria" name="category_id">
+        <option value="">Todas las Categorías</option>
+        <?php foreach ($categories as $category){ ?>
+            <option value="<?= $category->id ?>"><?= $category->name ?></option>
+        <?php } ?>
+    </select>
+    <button type="submit">Aplicar Filtro</button>
+</form>
+
+<script>
+function redirigirCategoria() {
+    const select = document.getElementById('select-categoria');
+    const categoriaId = select.value;
+
+    if (categoriaId) {
+        window.location.href = '<?= BASE_URL ?>categoria/' + categoriaId;
+    } else {
+        window.location.href = '<?= BASE_URL ?>productos';
+    }
+
+    return false; 
+}
+</script>

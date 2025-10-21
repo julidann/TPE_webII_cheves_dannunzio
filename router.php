@@ -78,6 +78,7 @@ switch ($params[0]) {
 
     // --------- CATEGORÍAS ---------
     case 'categorias':
+        $request = (new GuardMiddleware())->run($request);
         $controller = new CategoryController();
         $controller->showCategories($request);
         break;
