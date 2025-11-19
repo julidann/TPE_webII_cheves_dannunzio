@@ -5,6 +5,9 @@ README:
 
   - Cheves Nicolas, nicocheves99@gmail.com
   - D'Annunzio Julieta, dannunzio.julieta@gmail.com
+
+### NUEVO REPOSITORIO CON EL TPE PARTE 3 REST
+https://github.com/julidann/TPEREST_WEBII_Cheves_DAnnunzio
 ---
 ### Temática del Trabajo Especial 
 - Catálogo de productos para una tienda de dispositivos tecnológicos Apple.
@@ -83,6 +86,7 @@ Contraseña : admin
 | **Formulario** | `form.edit.categories.phtml` | Formulario para la **edición** de una categoría existente. |
 
 ---
+
 
 
 
